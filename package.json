@@ -1,0 +1,23 @@
+{
+  "name": "time-track-commandline-exporter",
+  "version": "0.1.0",
+  "description": "Export the time-track data to the command line",
+  "main": "index.js",
+  "preferGlobal": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/furti/time-track-commandline-exporter.git"
+  },
+  "author": "Daniel Furtlehner",
+  "license": "Apache License 2.0",
+  "bugs": {
+    "url": "https://github.com/furti/time-track-commandline-exporter/issues"
+  },
+  "homepage": "https://github.com/furti/time-track-commandline-exporter#readme",
+  "dependencies": {
+    "chalk": "^1.0.0"
+  }
+}
