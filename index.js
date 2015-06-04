@@ -21,6 +21,6 @@ var chalk = require('chalk'),
 
 module.exports = function(tasks) {
   tasks.forEach(function(task) {
-    console.log(chalk.blue(task.description + ': ' + timeTrack.calculateDuration(task)));
+    console.log(chalk.blue(task.id + '. ' + task.description + ': ' + timeTrack.calculateDuration(task)));
   });
 };
