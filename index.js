@@ -16,11 +16,48 @@
 /**
  * Exporter that simply outputs all tasks and their duration to the console.
  */
-var chalk = require('chalk'),
-  timeTrack = require('time-track');
+var chalk = require("chalk"),
+  timeTrack = require("time-track");
+
+function getMinMaxTime(tasks) {
+  var min = null;
+  var max = null;
+
+  tasks.forEach(function(task) {
+    if (task.times) {
+      task.times.forEach(function(time) {
+        if (!min || min > time.start) {
+          min = time.start;
+        }
+
+        if (!max || max < time.end) {
+          max = time.end;
+        }
+      });
+    }
+  });
+
+  return {
+    min: min,
+    max: max
+  };
+}
 
 module.exports = function(tasks) {
+  var minMax = getMinMaxTime(tasks);
+
+  console.log(chalk.green("Start: " + minMax.min));
+  console.log(chalk.green("End: " + minMax.max));
+
   tasks.forEach(function(task) {
-    console.log(chalk.blue(task.id + '. ' + task.description + ': ' + timeTrack.calculateDuration(task)));
+    console.log(
+      chalk.blue(
+        task.id +
+          ". " +
+          task.description +
+          ": " +
+          timeTrack.calculateDuration(task)
+      )
+    );
   });
 };
